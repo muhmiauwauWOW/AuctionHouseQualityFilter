@@ -1,14 +1,47 @@
 local addonName, AHQF  = ...
 
 local db_defaults = {
+	showButtons = true,
 	state = {true, true, true}
 }
+
+AHQF.initializated = false
+function AHQF:Init()
+	if AHQF.initializated then return end 
+	AHQFDB = AHQFDB or db_defaults
+
+	AHQF:InitOptions()
+	AHQF.initializated = true
+
+	AuctionHouseFrame:HookScript("OnShow", function()
+		AHQFQualitySelectFrame:SetShown(AHQFDB.showButtons)
+	end)
+
+	AHQFQualitySelectFrame:SetShown(AHQFDB.showButtons)
+	
+	local function IsSelected(filter)
+		return AHQFDB.state[filter];
+	end
+
+	local function SetSelected(filter)
+		AHQFQualitySelectFrame[string.format("Quality%s", filter)]:SetTierState(not AHQFDB.state[filter])
+	end
+
+	Menu.ModifyMenu("MENU_AUCTION_HOUSE_SEARCH_FILTER", function(ownerRegion, rootDescription, contextData)
+		rootDescription:CreateTitle(addonName)
+		for i = 1, 3, 1 do
+			local icon = CreateAtlasMarkupWithAtlasSize(string.format("Professions-Icon-Quality-Tier%s-Small", i), 0, 0, nil,nil, nil, 0.6)
+			rootDescription:CreateCheckbox(icon, IsSelected, SetSelected, i);
+		end
+	end)
+
+end
 
 
 AHQF.browseResults = nil
 function AHQF:Filter(chached)
     local newTable = {}
-	for index, entry in ipairs(AHQF.browseResults) do
+	for _, entry in ipairs(AHQF.browseResults) do
 		if not entry then return end
 		local keep = true
 
@@ -29,7 +62,7 @@ end
 AHQF.loaded = CreateFrame("Frame")
 AHQF.loaded:RegisterEvent("ADDON_LOADED")
 AHQF.loaded:SetScript("OnEvent", function()
-	AHQFDB = AHQFDB or db_defaults
+	AHQF:Init()
 end)
 
 
@@ -76,3 +109,21 @@ function AHQFQualitySelectButtonMixin:SetTierState(state)
 	AHQFDB.state[self.tier] = state
 end
 
+
+function  AHQF.InitOptions()
+	local AddOnInfo = {C_AddOns.GetAddOnInfo(addonName)}
+    local category, layout = Settings.RegisterVerticalLayoutCategory(AddOnInfo[2])
+    AHQF.OptionsID = category:GetID()
+	local setting = Settings.RegisterAddOnSetting(category, "showButtons", "showButtons", AHQFDB, "boolean", "Show Buttons", AHQFDB.showButtons)
+	Settings.CreateCheckbox(category, setting, nil)
+    Settings.RegisterAddOnCategory(category)
+
+	--
+	AddonCompartmentFrame:RegisterAddon({
+		text = AddOnInfo[2],
+		notCheckable = true,
+		func = function()
+			Settings.OpenToCategory(AHQF.OptionsID)
+		end,
+	})
+end

@@ -9,7 +9,7 @@
          <Anchor point="LEFT" relativeKey="$parent.SearchBar.SearchBox" relativePoint="RIGHT" x="8" y="0"/>
       </Anchors>
 		<Frames>
-			<Button parentKey="Quality1Button"  mixin="AHQFQualitySelectButtonMixin" inherits="SquareIconButtonTemplate">
+			<Button parentKey="Quality1"  mixin="AHQFQualitySelectButtonMixin" inherits="SquareIconButtonTemplate">
                 <KeyValues>
                         <KeyValue key="iconAtlas" value="Professions-Icon-Quality-Tier1-Small" type="string"/>
                         <KeyValue key="tier" value="1" type="number"/>
@@ -23,7 +23,7 @@
                     <Anchor point="CENTER" relativeKey="$parent" relativePoint="CENTER" x="28" y="0"/>
                 </Anchors>
             </Button>
-            <Button parentKey="Quality2Button"  mixin="AHQFQualitySelectButtonMixin" inherits="SquareIconButtonTemplate">
+            <Button parentKey="Quality2"  mixin="AHQFQualitySelectButtonMixin" inherits="SquareIconButtonTemplate">
                 <KeyValues>
                         <KeyValue key="iconAtlas" value="Professions-Icon-Quality-Tier2-Small" type="string"/>
                     <KeyValue key="tier" value="2" type="number"/>
@@ -37,7 +37,7 @@
                     <Anchor point="CENTER" relativeKey="$parent" relativePoint="CENTER" x="0" y="0"/>
                 </Anchors>
             </Button>
-            <Button parentKey="Quality3Button"  mixin="AHQFQualitySelectButtonMixin" inherits="SquareIconButtonTemplate">
+            <Button parentKey="Quality3"  mixin="AHQFQualitySelectButtonMixin" inherits="SquareIconButtonTemplate">
                 <KeyValues>
                     <KeyValue key="iconAtlas" value="Professions-Icon-Quality-Tier3-Small" type="string"/>
                     <KeyValue key="tier" value="3" type="number"/>
