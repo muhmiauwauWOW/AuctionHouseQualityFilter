@@ -1,0 +1,61 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\..\FrameXML\UI.xsd">
+
+
+
+    <Frame name="AHQFQualitySelectFrame" parent="AuctionHouseFrame" mixin="AHQFQualitySelectMixin">
+      <Size x="80" y="23"/>
+      <Anchors>
+         <Anchor point="LEFT" relativeKey="$parent.SearchBar.SearchBox" relativePoint="RIGHT" x="8" y="0"/>
+      </Anchors>
+		<Frames>
+			<Button parentKey="Quality1Button"  mixin="AHQFQualitySelectButtonMixin" inherits="SquareIconButtonTemplate">
+                <KeyValues>
+                        <KeyValue key="iconAtlas" value="Professions-Icon-Quality-Tier1-Small" type="string"/>
+                        <KeyValue key="tier" value="1" type="number"/>
+                </KeyValues>
+                <Scripts>
+                    <OnLoad method="OnLoad"/>
+                    <OnClick method="OnClick"/>
+                    <OnShow method="OnShow"/>
+                </Scripts>
+                <Anchors>
+                    <Anchor point="CENTER" relativeKey="$parent" relativePoint="CENTER" x="28" y="0"/>
+                </Anchors>
+            </Button>
+            <Button parentKey="Quality2Button"  mixin="AHQFQualitySelectButtonMixin" inherits="SquareIconButtonTemplate">
+                <KeyValues>
+                        <KeyValue key="iconAtlas" value="Professions-Icon-Quality-Tier2-Small" type="string"/>
+                    <KeyValue key="tier" value="2" type="number"/>
+                </KeyValues>
+                <Scripts>
+                    <OnLoad method="OnLoad"/>
+                    <OnClick method="OnClick"/>
+                    <OnShow method="OnShow"/>
+                </Scripts>
+                <Anchors>
+                    <Anchor point="CENTER" relativeKey="$parent" relativePoint="CENTER" x="0" y="0"/>
+                </Anchors>
+            </Button>
+            <Button parentKey="Quality3Button"  mixin="AHQFQualitySelectButtonMixin" inherits="SquareIconButtonTemplate">
+                <KeyValues>
+                    <KeyValue key="iconAtlas" value="Professions-Icon-Quality-Tier3-Small" type="string"/>
+                    <KeyValue key="tier" value="3" type="number"/>
+                </KeyValues>
+                <Scripts>
+                    <OnLoad method="OnLoad"/>
+                    <OnClick method="OnClick"/>
+                    <OnShow method="OnShow"/>
+                </Scripts>
+                <Anchors>
+                    <Anchor point="CENTER" relativeKey="$parent" relativePoint="CENTER" x="-28" y="0"/>
+                </Anchors>
+            </Button>
+            </Frames>
+      <Scripts>
+         <OnLoad method="OnLoad"/>
+      </Scripts>
+	</Frame>
+
+
+</Ui>

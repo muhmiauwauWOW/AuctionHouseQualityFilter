@@ -1,0 +1,14 @@
+﻿## Interface: 110002
+## Title: Auction House - Quality Filter
+## Notes: Add quality filter to Auction House browse results view
+## Version: @project-version@
+## Author: Muhmiauwau
+## SavedVariables: AHQFDB
+## LoadOnDemand: 1
+## LoadWith: Blizzard_AuctionHouseUI
+## X-Curse-Project-ID: 1098517
+
+
+
+AuctionHouseQualityFilter.lua
+frames.xml
