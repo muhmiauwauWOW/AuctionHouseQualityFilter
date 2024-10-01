@@ -40,6 +40,8 @@ end
 
 AHQF.browseResults = nil
 function AHQF:Filter(chached)
+	if not AHQF.browseResults then return end
+
     local newTable = {}
 	for _, entry in ipairs(AHQF.browseResults) do
 		if not entry then return end
