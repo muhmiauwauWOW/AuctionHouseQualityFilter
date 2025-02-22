@@ -1,4 +1,4 @@
-﻿## Interface: 110005
+﻿## Interface: 110100
 ## Title: Auction House - Quality Filter
 ## Notes: Add quality filter to Auction House browse results view
 ## Version: @project-version@
