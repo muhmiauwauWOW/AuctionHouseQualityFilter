@@ -28,9 +28,9 @@ function AHQF:Init()
 	end
 
 	Menu.ModifyMenu("MENU_AUCTION_HOUSE_SEARCH_FILTER", function(ownerRegion, rootDescription, contextData)
-		rootDescription:CreateTitle(addonName)
-		for i = 1, 3, 1 do
-			local icon = CreateAtlasMarkupWithAtlasSize(string.format("Professions-Icon-Quality-Tier%s-Small", i), 0, 0, nil,nil, nil, 0.6)
+		rootDescription:CreateTitle("Quality Filter")
+		for i = 1, 2, 1 do
+			local icon = CreateAtlasMarkupWithAtlasSize(string.format("Professions-ChatIcon-Quality-12-Tier%s", i), 0, 0, nil,nil, nil, 0.6)
 			rootDescription:CreateCheckbox(icon, IsSelected, SetSelected, i);
 		end
 	end)
